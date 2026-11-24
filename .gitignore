@@ -1,0 +1,9 @@
+# Distribution zip of extension/ (built when sharing, not tracked)
+*.zip
+# Test output
+tests/output/
+node_modules/
+# The reviewer video (node tools/record-video.mjs); published on YouTube, not in git
+store/video/
+# Worker agents' git worktrees (orchestrated runs)
+.claude/worktrees/

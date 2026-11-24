@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mock vendor bill (edit)</title>
+<link rel="stylesheet" href="fixture.css">
+<script src="capture.js"></script>
+<script src="query.js"></script>
+<script src="record-edit.js"></script>
+</head>
+<body>
+<div class="form">
+<h3>Mock vendor bill VB-1001 (edit mode)</h3>
+<!-- A line-level memo field placed before the body memo: it must not hide the body field. -->
+<div data-nsps-type="field" data-field-name="memo" data-field-type="text" data-nsps-label="Line memo" data-mode="edit" data-field-context="sublist"><input name="memo_line"></div>
+<div data-nsps-type="field" data-field-name="tranid" data-field-type="text" data-nsps-label="Reference No." data-mode="edit" data-required="true"><input name="tranid" value="VB-1001"></div>
+<div data-nsps-type="field" data-field-name="entity" data-field-type="select" data-nsps-label="Vendor" data-mode="edit"><input name="entity" value="7"></div>
+<div data-nsps-type="field" data-field-name="memo" data-field-type="textarea" data-nsps-label="Memo" data-mode="edit"><textarea name="memo"></textarea></div>
+<div data-nsps-type="field" data-field-name="custbody_tags" data-field-type="multiselect" data-nsps-label="Tags" data-mode="edit"><input name="custbody_tags"></div>
+<div data-nsps-type="field" data-field-name="custbody_quote" data-field-type="text" data-nsps-label="Quote test" data-mode="edit"><input name="custbody_quote"></div>
+<div data-nsps-type="field" data-field-name="custbody_adj" data-field-type="currency" data-nsps-label="Adjustment" data-mode="edit"><input name="custbody_adj"></div>
+<div data-nsps-type="field" data-field-name="custbody_empty" data-field-type="text" data-nsps-label="Empty field" data-mode="edit"><input name="custbody_empty"></div>
+<input type="hidden" name="nluser" value="3045">
+<!-- Real edit forms render the line-entry fields of a sublist as fields with data-field-context="sublist"
+     (custcol_a belongs on the Sublists tab), next to subtab filter controls (contactrole: Other inputs). -->
+<div id="item_layer">
+  <div data-nsps-type="field" data-field-name="item" data-field-type="select" data-nsps-label="Item" data-mode="edit" data-field-context="sublist"><input name="item_entry"></div>
+  <div data-nsps-type="field" data-field-name="custcol_a" data-field-type="text" data-nsps-label="Notes" data-mode="edit" data-field-context="sublist"><input name="custcol_a"></div>
+  <div data-nsps-type="field" data-field-name="contactrole" data-field-type="select" data-nsps-label="Role" data-mode="edit" data-field-context="sublist"><select name="contactrole"><option value="">-</option></select></div>
+</div>
+
+<!-- Planted markup, as if from an inline HTML field -->
+<div class="inlinehtml">
+  <div id="spoof" data-nsps-type="field" data-field-name="x'); alert(1); ('" data-field-type="text" data-nsps-label="Spoofed">spoofed field</div>
+  <div data-nsps-type="sublist" data-nsps-id="bad'id"></div>
+</div>
+
+<div data-nsps-type="sublist" data-nsps-id="item"></div>
+<table id="item_splits" data-sublist-id="item">
+  <!-- Real edit-mode header cells have data-label but no data-nsps-id (seen on the sandbox), and the
+       row cells have no data-field-name, so columns can only be matched by label and position. -->
+  <tr>
+    <td data-nsps-type="columnheader" data-label="Item">Item</td>
+    <td data-nsps-type="columnheader" data-label="Amount">Amount</td>
+    <td data-nsps-type="columnheader" data-label="Notes">Notes</td>
+    <td data-nsps-type="columnheader" data-label="Notes">Notes</td>
+  </tr>
+  <tr><td id="l1-item">Widget</td><td id="l1-amount">-5</td><td id="l1-a">alpha</td><td id="l1-b">beta</td></tr>
+  <tr><td id="l2-item">Gadget</td><td id="l2-amount">12.50</td><td id="l2-a">gamma</td><td id="l2-b">delta</td></tr>
+</table>
+</div>
+</body></html>

@@ -1,0 +1,81 @@
+/* Demo record page, laid out like a NetSuite Next record (generic styling, no Oracle or NetSuite branding). */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font: 13px/1.4 "Segoe UI", system-ui, -apple-system, sans-serif; color: #1d2125; background: #eef0f2; }
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The shell: the record iframe above the dock (bottom bar). */
+body.shell { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+.demo { flex: none; padding: 7px 16px; background: #f2c14e; color: #1f2d38; font-size: 13.5px; border-bottom: 1px solid #d9a632; }
+.demo b { display: inline-block; margin-right: 10px; padding: 1px 8px; border-radius: 3px; background: #1f2d38; color: #f2c14e; letter-spacing: .08em; }
+#classic { border: 0; width: 100%; flex: 1; display: block; }
+.dock { flex: none; display: flex; align-items: center; height: 46px; padding: 0 12px; background: #1f2d38; color: #e6ecf0; gap: 4px; }
+.dock .ico { position: relative; display: grid; place-items: center; width: 52px; height: 46px; }
+.dock .ico b { position: absolute; top: 7px; right: 11px; min-width: 15px; height: 15px; padding: 0 4px; border-radius: 8px; background: #3b82c4; color: #fff; font-size: 10px; line-height: 15px; text-align: center; }
+.dock .sep { width: 1px; height: 46px; background: #3a4a56; margin: 0 6px; }
+.dock .who { display: flex; align-items: center; gap: 9px; margin-left: 4px; }
+.dock .av { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 4px; background: #5b7c92; font-weight: 600; font-size: 12px; }
+.dock .who b { display: block; font-size: 13px; }
+.dock .who small { display: block; font-size: 11px; opacity: .8; }
+.dock .badge { margin-left: 24px; padding: 3px 10px; border-radius: 999px; background: #f2c14e; color: #1f2d38; font-weight: 600; font-size: 12px; }
+.dock .search { margin-left: auto; display: flex; align-items: center; gap: 8px; width: 210px; height: 30px; padding: 0 10px; border: 1px solid #8fa0ad; border-radius: 4px; }
+.dock .search svg, .dock .chats svg { width: 15px; height: 15px; }
+.dock .chats { display: flex; align-items: center; gap: 8px; margin: 0 8px 0 20px; }
+
+/* The record page inside the iframe: a dark band with the title and actions, and a card over it. */
+body.rec { min-height: 100vh; }
+.band { position: relative; height: 175px; padding: 14px 32px 0; background: #2b4256; color: #fff; }
+.crumb { color: #e9b44c; font-size: 14px; }
+.ttl { display: flex; align-items: center; gap: 12px; margin-top: 9px; }
+.tile { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 4px; background: #6e8ca3; }
+.tile svg { width: 22px; height: 22px; stroke-width: 1.5; }
+.ttl h1 { margin: 0; font-size: 23px; line-height: 1.1; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.pill { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; background: #1d3040; }
+.sub { font-size: 12px; font-weight: 600; margin-top: 2px; }
+.keys { margin-top: 13px; font-size: 12px; }
+.keys b { font-weight: 600; }
+.keys .gap { margin-left: 16px; }
+.gold { color: #e9b44c; }
+.acts { position: absolute; top: 18px; right: 32px; display: flex; gap: 10px; }
+.acts button { font: 600 12.5px "Segoe UI", system-ui, sans-serif; padding: 4px 12px; border: 1px solid #e8edf1; border-radius: 3px; background: transparent; color: #fff; }
+.acts button.pri { background: #fff; color: #1d2125; padding: 4px 16px; }
+.card { position: relative; margin: -53px 16px 24px; padding: 18px 18px 22px; background: #faf9f7; border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+
+/* Field groups: three columns of label over value. */
+.sec { margin-bottom: 18px; }
+.sec h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; font-size: 16.5px; font-weight: 700; }
+.chev { width: 15px; height: 15px; stroke-width: 2.4; }
+.grid { display: grid; grid-template-columns: repeat(3, 288px); row-gap: 14px; }
+.fld { min-height: 36px; padding-right: 18px; }
+.lbl { font-size: 12px; color: #3b4148; }
+.val { margin-top: 2px; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+a.lnk { color: #2266a4; text-decoration: none; }
+.cb { display: inline-block; width: 14px; height: 14px; border: 1.5px solid #77818a; border-radius: 2px; vertical-align: -2px; }
+.cb.on { background: #2266a4; border-color: #2266a4; position: relative; }
+.cb.on::after { content: ""; position: absolute; left: 3.5px; top: 0; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+/* Tabs (underlined) and subtabs (links). */
+.tabbox { margin-top: 8px; }
+.tabs { display: flex; gap: 22px; border-bottom: 1px solid #dadde0; margin-bottom: 12px; }
+.tabs a { padding: 6px 0 7px; color: #2f353b; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs a[aria-selected="true"] { color: #1d2125; border-bottom-color: #2266a4; }
+.subtabs { display: flex; gap: 16px; margin-bottom: 8px; }
+.subtabs a { color: #2266a4; text-decoration: none; }
+.subtabs a[aria-selected="true"] { color: #1d2125; }
+.pane .grid { margin-bottom: 14px; }
+p.none, td.none { color: #6b737a; }
+
+/* Sublist tables. */
+.tw { overflow-x: auto; border: 1px solid #dadde0; background: #fff; }
+table.lines { border-collapse: collapse; min-width: 100%; white-space: nowrap; }
+table.lines td { padding: 6px 12px; border-bottom: 1px solid #ebedef; }
+table.lines tr:first-child td { font-weight: 600; font-size: 12.5px; background: #e9eaeb; border-bottom-color: #d6d9dc; }
+table.lines td.num { text-align: right; }
+
+/* The stand-in page for NetSuite links (setup pages, Records Catalog) the demo server can't open. */
+body.app { display: grid; place-items: center; min-height: 100vh; padding: 24px; }
+.app .card { max-width: 520px; margin: 0; padding: 22px 26px; }
+.app h1 { font-size: 18px; margin: 0 0 8px; }
+.app p { margin: 6px 0; color: #4a5560; }
+
+/* Generated by Claude and Ammon Wendel. Questions or help: info@syincuso.com */

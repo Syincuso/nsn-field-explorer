@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mock vendor bill (view)</title>
+<link rel="stylesheet" href="fixture.css">
+<script src="capture.js"></script>
+<script src="query.js"></script>
+<script src="record-view.js"></script>
+</head>
+<body>
+<div class="form">
+<h3>Mock vendor bill VB-2002 (view mode)</h3>
+<!-- View mode: values are only display text; nlapiGetFieldValue returns null, as on real NetSuite Next. -->
+<div data-nsps-type="field" data-field-name="tranid" data-field-type="text" data-nsps-label="Reference No." data-mode="view"><span class="uir-field inputreadonly">VB-2002</span></div>
+<div data-nsps-type="field" data-field-name="entity" data-field-type="select" data-nsps-label="Vendor" data-mode="view"><span class="uir-field inputreadonly"><a href="#vendor">Acme Supply</a></span></div>
+<div data-nsps-type="field" data-field-name="subsidiary" data-field-type="select" data-nsps-label="Subsidiary" data-mode="view"><span class="uir-field inputreadonly">Acme Corp</span></div>
+<div data-nsps-type="field" data-field-name="trandate" data-field-type="date" data-nsps-label="Date" data-mode="view"><span class="uir-field inputreadonly">8/19/2026</span></div>
+<div data-nsps-type="field" data-field-name="paymenthold" data-field-type="checkbox" data-nsps-label="Payment Hold" data-mode="view"><span class="uir-field inputreadonly"></span></div>
+<div data-nsps-type="field" data-field-name="memo" data-field-type="text" data-nsps-label="Memo" data-mode="view"><span class="uir-field inputreadonly">&ndash;No value</span></div>
+<div data-nsps-type="field" data-field-name="custbody_tags" data-field-type="multiselect" data-nsps-label="Tags" data-mode="view"><span class="uir-field inputreadonly">Red, Blue</span></div>
+<div data-nsps-type="field" data-field-name="custbody_empty" data-field-type="text" data-nsps-label="Empty field" data-mode="view"><span class="uir-field inputreadonly">&ndash;No value</span></div>
+
+<!-- Real view-mode pages keep the filter controls on subtabs editable: -->
+<div id="contacts_layer">
+  <div data-nsps-type="field" data-field-name="contact" data-field-type="select" data-nsps-label="Contact" data-mode="edit" data-field-context="sublist"><select name="contact"><option value="">-</option></select></div>
+  <div data-nsps-type="field" data-field-name="Activity_STATUS" data-field-type="select" data-nsps-label="Status" data-mode="edit" data-field-context="sublist"><select name="Activity_STATUS"><option value="@ALL@">All</option></select></div>
+</div>
+
+<table id="item_splits" data-sublist-id="item">
+  <tr>
+    <td data-nsps-type="columnheader" data-label="Item" data-nsps-id="columnheader_item_item">Item</td>
+    <td data-nsps-type="columnheader" data-label="Description" data-nsps-id="columnheader_item_description">Description</td>
+    <td data-nsps-type="columnheader" data-label="Amount" data-nsps-id="columnheader_item_amount">Amount</td>
+    <td data-nsps-type="columnheader" data-label="Notes" data-nsps-id="columnheader_item_custcol_a">Notes</td>
+    <td data-nsps-type="columnheader" data-label="Notes" data-nsps-id="columnheader_item_custcol_b">Notes</td>
+  </tr>
+  <tr>
+    <td id="v1-item" data-field-name="item">Widget</td><td data-field-name="description">First</td><td data-field-name="amount">5,010.38</td>
+    <td data-field-name="custcol_a">alpha</td><td id="v1-b" data-field-name="custcol_b">beta</td>
+  </tr>
+  <tr>
+    <td data-field-name="item">Gadget</td><td data-field-name="description">Second</td><td id="v2-amount" data-field-name="amount">-5.00</td>
+    <td data-field-name="custcol_a">gamma</td><td data-field-name="custcol_b">delta</td>
+  </tr>
+  <!-- Like real NetSuite: a row that is not a record line (no data-field-name cells). -->
+  <tr><td colspan="5">Total 5,005.38</td></tr>
+</table>
+</div>
+</body></html>
