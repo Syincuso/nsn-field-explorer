@@ -3,13 +3,13 @@
   "private": true,
   "description": "Development tools for the NSN Field Explorer browser extension (the extension itself is in extension/).",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/Syincuso-LLC/nsn-field-explorer#readme",
+  "homepage": "https://github.com/Syincuso/nsn-field-explorer#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Syincuso-LLC/nsn-field-explorer.git"
+    "url": "git+https://github.com/Syincuso/nsn-field-explorer.git"
   },
   "bugs": {
-    "url": "https://github.com/Syincuso-LLC/nsn-field-explorer/issues"
+    "url": "https://github.com/Syincuso/nsn-field-explorer/issues"
   },
   "engines": {
     "node": ">=20"

@@ -3,7 +3,7 @@
 Shows the field ID, label, type and current value of every body field, plus sublist field IDs and line values, on any NetSuite record page. It finds the form inside NetSuite Next's iframe automatically, and works in both view and edit mode. It is a read-only browser extension for Chrome, Edge and Firefox, released under the [Apache License 2.0](LICENSE).
 
 ## Use it as a browser extension (Edge or Chrome)
-1. Get the code (`git clone https://github.com/Syincuso-LLC/nsn-field-explorer.git`, or download it as a zip from GitHub) and keep the folder somewhere permanent; the browser loads the extension from it every time it starts.
+1. Get the code (`git clone https://github.com/Syincuso/nsn-field-explorer.git`, or download it as a zip from GitHub) and keep the folder somewhere permanent; the browser loads the extension from it every time it starts.
 2. Go to `edge://extensions` (Edge) or `chrome://extensions` (Chrome) and turn on **Developer mode**.
 3. Click **Load unpacked** and pick the `extension` folder inside this folder.
 4. Pin it: click the puzzle-piece **Extensions** button in the toolbar, then the pin next to **NSN Field Explorer**.
@@ -68,7 +68,7 @@ NSN Field Explorer was inspired by two open-source NetSuite tools: [NetSuite Fie
 You need [Node.js](https://nodejs.org/) 20 or later and Google Chrome (the tests drive your installed Chrome through Playwright, not a downloaded Chromium).
 
 ```sh
-git clone https://github.com/Syincuso-LLC/nsn-field-explorer.git
+git clone https://github.com/Syincuso/nsn-field-explorer.git
 cd nsn-field-explorer
 npm ci           # installs Playwright, the only dependency (for the tests)
 npm run build    # checks ns-field-explorer.js and copies it into extension/
