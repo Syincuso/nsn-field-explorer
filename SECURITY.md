@@ -1,7 +1,7 @@
 # Security
 
 ## Reporting a problem
-Please report security problems privately by email to **info@syincuso.com**, not in a public issue. Say what you found, how to reproduce it (a mock page from `tests/fixtures/` is ideal), and which browser and extension version you used. You'll get a reply within a few working days.
+Please report security problems privately, not in a public issue: on GitHub, use **Report a vulnerability** on the repository's [Security tab](https://github.com/Syincuso/nsn-field-explorer/security/advisories/new), or email **info@syincuso.com**. Say what you found, how to reproduce it (a mock page from `tests/fixtures/` is ideal), and which browser and extension version you used. You'll get a reply within a few working days.
 
 ## Scope
 - The extension in `extension/` and the panel script `ns-field-explorer.js`. For example: markup on a NetSuite page that can run script through the panel, spoof a field ID into a copied snippet, or make the panel change a record.
